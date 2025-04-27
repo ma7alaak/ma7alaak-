@@ -383,7 +383,28 @@
     transform: translateY(0);
   }
 }
+<style>
+.music-button {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  font-size: 24px;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+  transition: transform 0.3s, background-color 0.3s;
+}
 
+.music-button:hover {
+  transform: scale(1.1);
+  background-color: #0056b3;
+}
+</style>
   </style>
    
    <body>
@@ -409,7 +430,25 @@
 
     <p>© 2025 محلك. جميع الحقوق محفوظة.</p>
     <p>تواصل معنا عبر البريد: <a href="mailto:ma7alaak@gmail.com" style="color: #fff;">ma7alaak@gmail.com</a></p>
+ <audio id="background-music" autoplay loop>
+  <source src="music/inspiring-innovation.mp3" type="audio/mpeg">
+  متصفحك لا يدعم تشغيل الصوت.
+</audio>
 
+<button class="music-button" onclick="toggleMute()">🔈</button>
+
+<script>
+var audio = document.getElementById("background-music");
+var button = document.querySelector(".music-button");
+
+// خلي الصوت ناعم بالبداية
+audio.volume = 0.3;
+
+function toggleMute() {
+  audio.muted = !audio.muted;
+  button.textContent = audio.muted ? "🔇" : "🔈";
+}
+</script>  
   </footer>
 
   <script>
