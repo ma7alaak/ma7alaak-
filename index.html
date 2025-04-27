@@ -294,7 +294,96 @@
   gap: 15px;
   margin: 20px 0;
 }
-  
+  /* تأثير على منطقة الهيرو كاملة */
+.hero {
+  text-align: center;
+  padding: 50px 20px;
+  width: 100%;
+  max-width: 1200px;
+  opacity: 0;
+  transform: translateY(50px);
+  animation: heroFade 1.5s ease forwards;
+}
+
+@keyframes heroFade {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* تأثير خاص على اسم التطبيق */
+.app-name {
+  font-size: 48px;
+  margin-bottom: 20px;
+  font-weight: bold;
+  color: #007bff;
+  opacity: 0;
+  transform: scale(0.8);
+  animation: appNameFade 1.5s ease forwards;
+  animation-delay: 0.5s;
+}
+
+@keyframes appNameFade {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* تأثير خاص على الجملة تحت الاسم */
+.hero p {
+  font-size: 24px;
+  color: #333;
+  opacity: 0;
+  transform: scale(0.9);
+  animation: fadeInGrow 1.5s ease forwards;
+  animation-delay: 1s;
+}
+
+@keyframes fadeInGrow {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* تأثير على الأزرار */
+.app-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 40px;
+  flex-wrap: wrap;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: buttonsFade 1.5s ease forwards;
+  animation-delay: 1.5s;
+}
+
+@keyframes buttonsFade {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
   </style>
    
    <body>
