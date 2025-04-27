@@ -17,7 +17,7 @@
     }
     body {
       font-family: 'Cairo', sans-serif;
-      background-color: #f8f9fa;
+      background-color:#f8f9fa ;
       color: #333;
       min-height: 100vh;
       display: flex;
@@ -25,15 +25,15 @@
       align-items: center;
     }
     header {
-      background-color: #007bff;
-      color: white;
+      background-color: #f8f9fa;
+      color: #007bff;
       text-align: center;
       padding: 30px 20px;
       width: 100%;
     }
     .header-logo {
-      width: 120px;
-      height: 120px;
+      width: 200px;
+      height: 200px;
       border-radius: 50%;
       object-fit: cover;
       margin-bottom: 15px;
@@ -150,11 +150,43 @@
       .app-name {
         font-size: 28px;
       }
-      .hero p, header p {
-        font-size: 16px;
+          .hero p {
+        font-size: 18px;
+      }
+      .countdown-image {
+        width: 280px;
+        height: 280px;
       }
       .countdown {
-        font-size: 22px;
+        font-size: 30px;
+      }
+      .feature {
+        width: 100%;
+        max-width: 350px;
+      }
+      .subscribe-form input[type="email"] {
+        width: 100%;
+      }
+    }
+    @media (max-width: 480px) {
+      .app-name {
+        font-size: 36px;
+      }
+      .countdown-image {
+        width: 240px;
+        height: 240px;
+      }
+      .countdown {
+        font-size: 26px;
+      }
+      .app-buttons {
+        flex-direction: column;
+      }
+      .whatsapp {
+        bottom: 15px;
+        left: 15px;
+        padding: 12px 20px;
+        font-size: 16px;
       }
     }
   </style>
@@ -163,7 +195,7 @@
 <body>
 
   <header>
-    <img src="https://i.ibb.co/1GK4L4RZ/7.png" alt="محلك" class="header-logo">
+    <img src="https://i.ibb.co/3y0ynTp1/01-removebg-preview.png" alt="محلك" class="header-logo">
     <h1>محلك - تسوق بذكاء</h1>
     <p>اكتشف أفضل العروض والتخفيضات في مكان واحد</p>
   </header>
@@ -240,3 +272,4 @@
 
 </body>
 </html>
+
