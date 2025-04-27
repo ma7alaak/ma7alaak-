@@ -473,6 +473,29 @@ function toggleMute() {
     setInterval(updateCountdown, 1000);
     updateCountdown();
   </script>
+<script>
+  const music = document.getElementById('background-music');
+  const musicButton = document.querySelector('.music-button');
+<audio id="background-music" loop>
+  <source src="music/inspiring-innovation.mp3" type="audio/mpeg">
+  متصفحك لا يدعم تشغيل الصوت.
+</audio>
+  // زر ميوت/أن ميوت
+  musicButton.addEventListener('click', function(event) {
+    event.stopPropagation(); // مشان ما يشتغل مع الكليك العام
+    if (music.muted) {
+      music.muted = false;
+      musicButton.textContent = '🔈';
+    } else {
+      music.muted = true;
+      musicButton.textContent = '🔇';
+    }
+  });
 
+  // أول لمسة على الصفحة بتشغل الموسيقى
+  document.body.addEventListener('click', () => {
+    music.play().catch(() => {});
+  }, { once: true });
+</script>
 </body>
 </html>
