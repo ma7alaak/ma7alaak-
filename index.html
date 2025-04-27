@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>محلك - تسوق بذكاء</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Cairo', sans-serif;
+      background-color: #f8f9fa;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+    }
+    header {
+      background-color: #007bff;
+      color: white;
+      padding: 20px;
+      text-align: center;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 150px;
+      position: relative;
+    }
+    .header-image {
+      height: 100px;
+      width: 50;
+      border-radius:20px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+    header img.logo {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      object-fit: cover;
+      position: absolute;
+      top: 200px;
+      right: 5px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+      animation: float 3s ease-in-out infinite;
+      background-color: white;
+      padding: 10px;
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+    .hero {
+      text-align: center;
+      padding: 50px 20px;
+      width: 100%;
+      max-width: 1200px;
+    }
+    .app-name {
+      font-size: 48px;
+      margin-bottom: 20px;
+      font-weight: bold;
+      color: #007bff;
+    }
+    .hero p {
+      font-size: 20px;
+      margin-bottom: 30px;
+    }
+    .countdown-section {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 10px 0;
+      width: 100%;
+    }
+    .countdown-content {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 100px;
+      position: relative;
+    }
+    .countdown-image {
+      width: 320px;
+      height: 320px;
+      border-radius: 20px;
+      object-fit: contain;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+      flex-shrink: 0;
+    }
+    .countdown {
+      font-size: 36px;
+      font-weight: bold;
+      color: #007bff;
+      text-align: center;
+      min-width: 350px;
+    }
+    .app-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 40px;
+      flex-wrap: wrap;
+    }
+    .app-button {
+      display: inline-block;
+      height: 60px;
+      transition: transform 0.3s;
+    }
+    .app-button:hover {
+      transform: scale(1.05);
+    }
+    .app-button img {
+      height: 100%;
+    }
+    .subscribe-section {
+      background-color: #007bff;
+      color: white;
+      padding: 25px;
+      margin-top: 60px;
+      text-align: center;
+      border-radius: 10px;
+      width: 90%;
+      max-width: 600px;
+    }
+    .subscribe-section h2 {
+      font-size: 28px;
+      margin-bottom: 15px;
+    }
+    .subscribe-section p {
+      font-size: 18px;
+      margin-bottom: 25px;
+    }
+    .subscribe-form {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 5px;
+    }
+    .subscribe-form input[type="email"] {
+      padding: 12px 15px;
+      font-size: 16px;
+      width: 100%;
+      max-width: 400px;
+      border: none;
+      border-radius: 5px;
+    }
+    .subscribe-form button {
+      padding: 12px 25px;
+      background-color: #28a745;
+      color: white;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    .subscribe-form button:hover {
+      background-color: #218838;
+    }
+    footer {
+      background-color: #343a40;
+      color: white;
+      text-align: center;
+      padding: 25px;
+      margin-top: 70px;
+      width: 100%;
+    }
+    .contact-info {
+      margin-top: 20px;
+      font-size: 17px;
+      line-height: 1.7;
+    }
+    .landing-date {
+      margin-top: 15px;
+      font-style: italic;
+    }
+    .whatsapp {
+      position: fixed;
+      bottom: 25px;
+      left: 25px;
+      background-color: #25D366;
+      color: white;
+      padding: 15px 25px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-size: 18px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+      transition: all 0.3s;
+      z-index: 100;
+    }
+    .whatsapp:hover {
+      background-color: #1ebe5d;
+      transform: translateY(-3px);
+    }
+    .whatsapp img {
+      width: 26px;
+    }
+    .features-container {
+      display: flex;
+      justify-content: center;
+      gap: 5px;
+      width: 100%;
+      padding: 20px;
+      margin-top: 50px;
+      flex-wrap: wrap;
+      max-width: 1200px;
+    }
+    .feature {
+      width: 300px;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      padding: 25px;
+      text-align: center;
+      transition: transform 0.3s;
+    }
+    .feature:hover {
+      transform: translateY(-5px);
+    }
+    .feature-icon {
+      font-size: 45px;
+      color: #007bff;
+      margin-bottom: 15px;
+    }
+    .feature h3 {
+      color: #007bff;
+      font-size: 20px;
+      margin-bottom: 12px;
+    }
+    .feature p {
+      font-size: 15px;
+      line-height: 1.6;
+    }
+    @media (max-width: 992px) {
+      .countdown-content {
+        flex-direction: column;
+        gap: 40px;
+      }
+      .countdown {
+        min-width: auto;
+      }
+    }
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        padding: 80px 20px 30px;
+      }
+      .header-image {
+        width: 180px;
+        margin-bottom: 20px;
+      }
+      .app-name {
+        font-size: 40px;
+      }
+      .hero p {
+        font-size: 18px;
+      }
+      .countdown-image {
+        width: 280px;
+        height: 280px;
+      }
+      .countdown {
+        font-size: 30px;
+      }
+      .feature {
+        width: 100%;
+        max-width: 350px;
+      }
+      .subscribe-form input[type="email"] {
+        width: 100%;
+      }
+    }
+    @media (max-width: 480px) {
+      .app-name {
+        font-size: 36px;
+      }
+      .countdown-image {
+        width: 240px;
+        height: 240px;
+      }
+      .countdown {
+        font-size: 26px;
+      }
+      .app-buttons {
+        flex-direction: column;
+      }
+      .whatsapp {
+        bottom: 15px;
+        left: 15px;
+        padding: 12px 20px;
+        font-size: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="https://i.ibb.co/hxThnPhh/01-1.jpg" alt="محلك" class="header-image">
+    <div>
+      <h1>محلك - تسوق بذكاء</h1>
+      <p>اكتشف أفضل العروض والتخفيضات في مكان واحد</p>
+    </div>
+    <img src="https://i.ibb.co/hxThnPhh/01-1.jpg" alt="Logo" class="logo">
+  </header>
+  
+  <div class="hero">
+    <div class="app-name">محلك</div>
+    <p>احصل على أفضل العروض والتخفيضات قبل الجميع</p>
+    
+    <div class="countdown-section">
+      <div class="countdown-content">
+        <img src="https://i.ibb.co/1GK4L4RZ/7.png" alt="Countdown Image" class="countdown-image">
+        <div class="countdown" id="countdown"></div>
+      </div>
+    </div>
+    
+    <div class="app-buttons">
+      <a href="https://apps.apple.com/lb/app/%D9%85%D8%AD%D9%84%D9%83-ma7alaak/id6743770321" class="app-button" target="_blank" rel="noopener noreferrer">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Download_on_the_App_Store_Badge.svg" alt="App Store">
+      </a>
+      <a href="https://play.google.com/store/apps/details?id=com.mahalak" class="app-button" target="_blank" rel="noopener noreferrer">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Google Play">
+      </a>
+    </div>
+  </div>
+  
+  <div class="features-container">
+    <div class="feature">
+      <div class="feature-icon"><i class="fas fa-star"></i></div>
+      <h3>عروض حصرية</h3>
+      <p>احصل على عروض وتخفيضات حصرية لا تجدها في أي مكان آخر</p>
+    </div>
+    
+    <div class="feature">
+      <div class="feature-icon"><i class="fas fa-wallet"></i></div>
+      <h3>توفير المال</h3>
+      <p>وفر حتى 70% على مشترياتك اليومية</p>
+    </div>
+    
+    <div class="feature">
+      <div class="feature-icon"><i class="fas fa-bell"></i></div>
+      <h3>إشعارات فورية</h3>
+      <p>كن أول من يعرف عند توفر عروض جديدة</p>
+    </div>
+  </div>
+  
+  <div class="subscribe-section">
+    <h2>اشترك في نشرتنا البريدية</h2>
+    <p>احصل على آخر العروض والتخفيضات مباشرة إلى بريدك الإلكتروني</p>
+    <form class="subscribe-form">
+      <input type="email" placeholder="أدخل بريدك الإلكتروني" required>
+      <button type="submit">اشترك الآن</button>
+    </form>
+  </div>
+  
+  <a href="https://wa.me/9613161924" class="whatsapp">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+    تواصل معنا
+  </a>
+  
+  <footer>
+    <p>© 2023 محلك. جميع الحقوق محفوظة.</p>
+    <div class="contact-info">
+      <p>البريد الإلكتروني: <a href="mailto:ma7alaak@gmail.com" style="color: #fff;">ma7alaak@gmail.com</a></p>
+      <p>الهاتف: <a href="tel:+9613161924" style="color: #fff;">+961 3 161 924</a></p>
+    </div>
+    <div class="landing-date">
+      تاريخ الإنطلاق: ١ يونيو ٢٠٢٥
+    </div>
+  </footer>
+  
+  <script>
+    // Countdown to landing date (June 1, 2025)
+    function updateCountdown() {
+      const landingDate = new Date('2025-06-01T00:00:00');
+      const now = new Date();
+      const diff = landingDate - now;
+      
+      if (diff <= 0) {
+        document.getElementById('countdown').textContent = "لقد تم إطلاق التطبيق!";
+        return;
+      }
+      
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+      
+      document.getElementById('countdown').textContent = 
+        `   ${days} يوم ${hours} ساعة ${minutes} دقيقة ${seconds} ثانية`;    
+    }
+    
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+  </script>
+</body>
+</html>
