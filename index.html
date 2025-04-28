@@ -1,23 +1,18 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-
-  <link rel="icon" href="/ma7alaak-/favicon.ico" type="image/x-icon">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>محلك - تسوق بذكاء</title>
   <link rel="icon" href="favicon.ico" type="image/x-icon">
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
       font-family: 'Cairo', sans-serif;
-      background-color:#f8f9fa ;
+      background-color: #f8f9fa;
       color: #333;
       min-height: 100vh;
       display: flex;
@@ -41,18 +36,20 @@
       padding: 10px;
       box-shadow: 0 4px 8px rgba(0,0,0,0.2);
     }
-    header h1 {
-      font-size: 20px;
-      margin-bottom: 10px;
-    }
-    header p {
-      font-size: 18px;
-    }
+    header h1 { font-size: 24px; margin-bottom: 10px; }
+    header p { font-size: 18px; }
     .hero {
       text-align: center;
-      padding: 40px 20px;
+      padding: 50px 20px;
       width: 100%;
-      max-width: 1000px;
+      max-width: 1200px;
+      opacity: 0;
+      transform: translateY(50px);
+      animation: heroFade 1.5s ease forwards;
+    }
+    @keyframes heroFade {
+      from { opacity: 0; transform: translateY(50px); }
+      to { opacity: 1; transform: translateY(0); }
     }
     .hero-image {
       width: 100%;
@@ -62,14 +59,29 @@
       box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     }
     .app-name {
-      font-size: 20px;
-      color: #007bff;
+      font-size: 48px;
       font-weight: bold;
+      color: #007bff;
       margin: 20px 0 10px;
+      opacity: 0;
+      transform: scale(0.8);
+      animation: appNameFade 1.5s ease forwards 0.5s;
+    }
+    @keyframes appNameFade {
+      from { opacity: 0; transform: scale(0.8); }
+      to { opacity: 1; transform: scale(1); }
     }
     .hero p {
-      font-size: 30px;
+      font-size: 24px;
+      color: #333;
       margin-bottom: 30px;
+      opacity: 0;
+      transform: scale(0.9);
+      animation: fadeInGrow 1.5s ease forwards 1s;
+    }
+    @keyframes fadeInGrow {
+      from { opacity: 0; transform: scale(0.8); }
+      to { opacity: 1; transform: scale(1); }
     }
     .countdown {
       font-size: 28px;
@@ -83,10 +95,15 @@
       gap: 20px;
       margin: 30px 0;
       flex-wrap: wrap;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: buttonsFade 1.5s ease forwards 1.5s;
     }
-    .app-buttons img {
-      height: 60px;
+    @keyframes buttonsFade {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
     }
+    .app-buttons img { height: 60px; }
     .features-container {
       display: flex;
       flex-wrap: wrap;
@@ -99,8 +116,8 @@
       padding: 20px;
       border-radius: 10px;
       width: 280px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
       text-align: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     }
     .feature-icon {
       font-size: 40px;
@@ -109,7 +126,7 @@
     }
     .whatsapp {
       position: fixed;
-      bottom: 20px;
+      bottom: 90px;
       left: 20px;
       background-color: #25D366;
       color: white;
@@ -124,13 +141,7 @@
       transition: all 0.3s;
       z-index: 100;
     }
-    .whatsapp:hover {
-      background-color: #1ebe5d;
-      transform: translateY(-3px);
-    }
-    .whatsapp img {
-      width: 24px;
-    }
+    .whatsapp:hover { background-color: #1ebe5d; transform: translateY(-3px); }
     footer {
       background: #343a40;
       color: white;
@@ -139,117 +150,7 @@
       margin-top: 50px;
       width: 100%;
     }
-    @media (max-width: 600px) {
-      .header-logo {
-        width: 100px;
-        height: 100px;
-      }
-      header h1 {
-        font-size: 20px;
-      }
-      .app-name {
-        font-size: 20px;
-      }
-      @media (max-width: 600px) {
-        .app-name {
-          font-size: 20px;
-        }
-        
-      }
-          .hero p {
-        font-size: 30px;
-      }
-      .countdown-image {
-        width: 280px;
-        height: 280px;
-      }
-      .countdown {
-        font-size: 30px;
-      }
-      .feature {
-        width: 100%;
-        max-width: 350px;
-      }
-      .subscribe-form input[type="email"] {
-        width: 100%;
-      }
-    }
-    @media (max-width: 480px) {
-      .app-name {
-        font-size: 36px;
-      }
-      .countdown-image {
-        width: 240px;
-        height: 240px;
-      }
-      .countdown {
-        font-size: 26px;
-      }
-      .app-buttons {
-        flex-direction: column;
-      }
-      .whatsapp {
-        bottom: 15px;
-        left: 15px;
-        padding: 12px 20px;
-        font-size: 16px;
-      }
-    }
-  </style>
-</head>
-
-<body>
-
-  <header>
-    <img src="https://i.ibb.co/3y0ynTp1/01-removebg-preview.png" alt="محلك" class="header-logo">
-    <h1>محلك - تسوق بذكاء</h1>
-    <p>اكتشف أفضل العروض والتخفيضات في مكان واحد</p>
-  </header>
-
-  <section class="hero">
-    <img src="https://i.ibb.co/1GK4L4RZ/7.png" alt="محلك" class="hero-image">
-    <div class="app-name"></div>
-    <p>تسوق بذكاء ووفر أكثر </p>
-
-    <div id="countdown" class="countdown"></div>
-
-    <div class="app-buttons">
-      <a href="https://apps.apple.com/lb/app/%D9%85%D8%AD%D9%84%D9%83-ma7alaak/id6743770321" target="_blank">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Download_on_the_App_Store_Badge.svg" alt="App Store">
-      </a>
-      <a href="https://play.google.com/store/apps/details?id=com.mahalak" target="_blank">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Google Play">
-      </a>
-    </div>
-  </section>
-
-  <section class="features-container">
-    <div class="feature">
-      <div class="feature-icon"><i class="fas fa-star"></i></div>
-      <h3>عروض حصرية</h3>
-      <p>عروض وتخفيضات حصرية لا تجدها في أي مكان آخر.</p>
-    </div>
-
-    <div class="feature">
-      <div class="feature-icon"><i class="fas fa-wallet"></i></div>
-      <h3>توفير المال</h3>
-      <p>وفر حتى 70% على مشترياتك اليومية مع محلك.</p>
-    </div>
-
-    <div class="feature">
-      <div class="feature-icon"><i class="fas fa-bell"></i></div>
-      <h3>إشعارات فورية</h3>
-      <p>ابقَ على اطلاع بأحدث العروض والتنزيلات فور توفرها.</p>
-    </div>
-  </section>
-
-  <a href="https://wa.me/9613161924" class="whatsapp" target="_blank">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="واتساب">
-    <p>الهاتف: <a href="tel:009613161924" style="color: hsl(239, 88%, 46%);"></a></p>
-    </div>
-  
-<style>
-  .landing-date {
+    .landing-date {
       font-size: 26px;
       font-weight: 700;
       color: #007bff;
@@ -259,243 +160,142 @@
       letter-spacing: 1px;
       opacity: 0;
       animation: bounceFade 2s ease forwards;
-  }
-    
-  @media (max-width:600 px)  {
-    .landing-date  {
-      font-size: 20px; 
-    }  
-   }
-
-
-  @keyframes bounceFade {
-      0% {
-          opacity: 0;
-          transform: translateY(5px);
-      }
-      50% {
-          opacity: 0.7;
-          transform: translateY(-10px);
-      }
-      70% {
-          opacity: 0.9;
-          transform: translateY(5px);
-      }
-      100% {
-          opacity: 1;
-          transform: translateY(0);
-      }
-  }
-  
-  /* Responsive design */
- .social-icons {
-  display: flex;
-  justify-content: center;
-  gap: 15px;
-  margin: 20px 0;
-}
-  /* تأثير على منطقة الهيرو كاملة */
-.hero {
-  text-align: center;
-  padding: 50px 20px;
-  width: 100%;
-  max-width: 1200px;
-  opacity: 0;
-  transform: translateY(50px);
-  animation: heroFade 1.5s ease forwards;
-}
-
-@keyframes heroFade {
-  0% {
-    opacity: 0;
-    transform: translateY(50px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* تأثير خاص على اسم التطبيق */
-.app-name {
-  font-size: 48px;
-  margin-bottom: 20px;
-  font-weight: bold;
-  color: #007bff;
-  opacity: 0;
-  transform: scale(0.8);
-  animation: appNameFade 1.5s ease forwards;
-  animation-delay: 0.5s;
-}
-
-@keyframes appNameFade {
-  0% {
-    opacity: 0;
-    transform: scale(0.8);
-  }
-  100% {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-/* تأثير خاص على الجملة تحت الاسم */
-.hero p {
-  font-size: 24px;
-  color: #333;
-  opacity: 0;
-  transform: scale(0.9);
-  animation: fadeInGrow 1.5s ease forwards;
-  animation-delay: 1s;
-}
-
-@keyframes fadeInGrow {
-  0% {
-    opacity: 0;
-    transform: scale(0.8);
-  }
-  100% {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-/* تأثير على الأزرار */
-.app-buttons {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  margin-top: 40px;
-  flex-wrap: wrap;
-  opacity: 0;
-  transform: translateY(30px);
-  animation: buttonsFade 1.5s ease forwards;
-  animation-delay: 1.5s;
-}
-
-@keyframes buttonsFade {
-  0% {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-<style>
-.music-button {
-  position: fixed;
-  bottom: 20px;
-  left: 20px;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  border-radius: 50%;
-  width: 50px;
-  height: 50px;
-  font-size: 24px;
-  cursor: pointer;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-  transition: transform 0.3s, background-color 0.3s;
-}
-
-.music-button:hover {
-  transform: scale(1.1);
-  background-color: #0056b3;
-}
-</style>
+    }
+    @keyframes bounceFade {
+      0% { opacity: 0; transform: translateY(5px); }
+      50% { opacity: 0.7; transform: translateY(-10px); }
+      70% { opacity: 0.9; transform: translateY(5px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    .music-button {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      font-size: 24px;
+      cursor: pointer;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+      transition: transform 0.3s, background-color 0.3s;
+    }
+    .music-button:hover {
+      transform: scale(1.1);
+      background-color: #0056b3;
+    }
+    .social-icons {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin: 20px 0;
+    }
   </style>
-   
-   <body>
-    <div class="landing-date">
-      تاريخ الإنطلاق: ١ يونيو ٢٠٢٥
-   
-  
-<div class="social-icons"style="text-align: center; margin: 20px;">
-  <a href="https://www.facebook.com/Ma7alaak" target="_blank">
-    <img src="Images/facebook.png" alt="Facebook" width="40">
-  </a>
-  <a href="https://www.instagram.com/ma7alaak.store" target="_blank">
-    <img src="Images/instagram.png" alt="Instagram" width="40">
-  </a>
-  <a href="https://www.tiktok.com/@ma7alaak" target="_blank">
-    <img src="Images/tiktok.png" alt="TikTok" width="40">
-  </a>
+</head>
+
+<body>
+
+<header>
+  <img src="https://i.ibb.co/3y0ynTp1/01-removebg-preview.png" alt="محلك" class="header-logo">
+  <h1>محلك - تسوق بذكاء</h1>
+  <p>اكتشف أفضل العروض والتخفيضات في مكان واحد</p>
+</header>
+
+<section class="hero">
+  <img src="https://i.ibb.co/1GK4L4RZ/7.png" alt="محلك" class="hero-image">
+  <div class="app-name">محلك</div>
+  <p>تسوق بذكاء ووفر أكثر</p>
+  <div id="countdown" class="countdown"></div>
+
+  <div class="app-buttons">
+    <a href="https://apps.apple.com/lb/app/%D9%85%D8%AD%D9%84%D9%83-ma7alaak/id6743770321" target="_blank">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Download_on_the_App_Store_Badge.svg" alt="App Store">
+    </a>
+    <a href="https://play.google.com/store/apps/details?id=com.mahalak" target="_blank">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Google Play">
+    </a>
+  </div>
+</section>
+
+<section class="features-container">
+  <div class="feature">
+    <div class="feature-icon"><i class="fas fa-star"></i></div>
+    <h3>عروض حصرية</h3>
+    <p>عروض وتخفيضات حصرية لا تجدها في أي مكان آخر.</p>
+  </div>
+
+  <div class="feature">
+    <div class="feature-icon"><i class="fas fa-wallet"></i></div>
+    <h3>توفير المال</h3>
+    <p>وفر حتى 70% على مشترياتك اليومية مع محلك.</p>
+  </div>
+
+  <div class="feature">
+    <div class="feature-icon"><i class="fas fa-bell"></i></div>
+    <h3>إشعارات فورية</h3>
+    <p>ابقَ على اطلاع بأحدث العروض والتنزيلات فور توفرها.</p>
+  </div>
+</section>
+
+<a href="https://wa.me/9613161924" class="whatsapp" target="_blank">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="واتساب" width="24">
+</a>
+
+<div class="landing-date">تاريخ الإنطلاق: ١ يونيو ٢٠٢٥</div>
+
+<div class="social-icons">
+  <a href="https://www.facebook.com/ma7alaak/" target="_blank"><img src="Images/facebook.png" alt="Facebook" width="40"></a>
+  <a href="https://www.instagram.com/ma7alaak.store/" target="_blank"><img src="Images/instagram.png" alt="Instagram" width="40"></a>
+  <a href="https://www.tiktok.com/ma7alaak" target="_blank"><img src="Images/tiktok.png" alt="TikTok" width="40"></a>
 </div>
 
-<!-- بعدين الفوتر -->
 <footer>
+  <p>© 2025 محلك. جميع الحقوق محفوظة.</p>
+  <p>تواصل معنا عبر البريد: <a href="mailto:ma7alaak@gmail.com" style="color: #fff;">ma7alaak@gmail.com</a></p>
 
+  <audio id="background-music" autoplay loop>
+    <source src="music/inspiring-innovation.mp3" type="audio/mpeg">
+    متصفحك لا يدعم تشغيل الصوت.
+  </audio>
 
-    <p>© 2025 محلك. جميع الحقوق محفوظة.</p>
-    <p>تواصل معنا عبر البريد: <a href="mailto:ma7alaak@gmail.com" style="color: #fff;">ma7alaak@gmail.com</a></p>
- <audio id="background-music" autoplay loop>
-  <source src="music/inspiring-innovation.mp3" type="audio/mpeg">
-  متصفحك لا يدعم تشغيل الصوت.
-</audio>
-
-<button class="music-button" onclick="toggleMute()">🔈</button>
+  <button class="music-button" onclick="toggleMute()">🔈</button>
+</footer>
 
 <script>
-var audio = document.getElementById("background-music");
-var button = document.querySelector(".music-button");
+function updateCountdown() {
+  const landingDate = new Date('2025-06-01T00:00:00');
+  const now = new Date();
+  const diff = landingDate - now;
 
-// خلي الصوت ناعم بالبداية
+  if (diff <= 0) {
+    document.getElementById('countdown').textContent = "لقد تم إطلاق التطبيق!";
+    return;
+  }
+
+  const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+  const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+  document.getElementById('countdown').textContent = `${days} يوم ${hours} ساعة ${minutes} دقيقة ${seconds} ثانية`;
+}
+setInterval(updateCountdown, 1000);
+updateCountdown();
+
+var audio = document.getElementById("background-music");
 audio.volume = 0.3;
 
 function toggleMute() {
   audio.muted = !audio.muted;
-  button.textContent = audio.muted ? "🔇" : "🔈";
+  document.querySelector(".music-button").textContent = audio.muted ? "🔇" : "🔈";
 }
-</script>  
-  </footer>
 
-  <script>
-    function updateCountdown() {
-      const landingDate = new Date('2025-06-01T00:00:00');
-      const now = new Date();
-      const diff = landingDate - now;
-
-      if (diff <= 0) {
-        document.getElementById('countdown').textContent = "لقد تم إطلاق التطبيق!";
-        return;
-      }
-
-      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-
-      document.getElementById('countdown').textContent =
-      `   ${days} يوم ${hours} ساعة ${minutes} دقيقة ${seconds} ثانية`;
-    }
-    setInterval(updateCountdown, 1000);
-    updateCountdown();
-  </script>
-<script>
-  const music = document.getElementById('background-music');
-  const musicButton = document.querySelector('.music-button');
-<audio id="background-music" loop>
-  <source src="music/inspiring-innovation.mp3" type="audio/mpeg">
-  متصفحك لا يدعم تشغيل الصوت.
-</audio>
-  // زر ميوت/أن ميوت
-  musicButton.addEventListener('click', function(event) {
-    event.stopPropagation(); // مشان ما يشتغل مع الكليك العام
-    if (music.muted) {
-      music.muted = false;
-      musicButton.textContent = '🔈';
-    } else {
-      music.muted = true;
-      musicButton.textContent = '🔇';
-    }
-  });
-
-  // أول لمسة على الصفحة بتشغل الموسيقى
-  document.body.addEventListener('click', () => {
-    music.play().catch(() => {});
-  }, { once: true });
+document.body.addEventListener('click', () => {
+  audio.play().catch(() => {});
+}, { once: true });
 </script>
+
 </body>
 </html>
